@@ -89,7 +89,10 @@ static void vSPD_set(void);
 uint8_t ucTRNS_sfrq_dec;
 UI08 ucMAIN_chkint;
 uint8_t u8g_TRNSset_spd_flg;		/*メインからの回転数指令セット確認フラグ*//*マイコン起動時からの通信異常カウントのために必要*/
-
+#ifdef DEBUG /*DEBUG*/
+UI08 test_chg_speed_flg = 1;
+UI08 test_speed = 0x00;
+#endif /*DEBUG*/
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -301,7 +304,15 @@ int main(void)
             }					 			/* */
             ucMAIN_10up &= 0xfe;			/*10msﾀｲﾑｱｯﾌﾟﾌﾗｸﾞ←ｸﾘｱ */
     /*			vMAIN_Input();			*/		/*入力処理			( p_inpt ) */	/* @001MzDOD[16/09/01] */
+#ifdef DEBUG /*DEBUG*/
+       un100MSt_typect = 6001;  /*デバッグ*/
+        ucTRNS_sfrg &= ~(0x10);			/*通信データ確定状態セット*//* デバッグ */
         }
+        //ucTRNS_type = 0x0C; /* TKD100E20PBF用 */
+        ucTRNS_type = 0x0E; /* TKD100E23DAH用 */
+#else  /*DEBUG*/ 
+        }
+#endif /*DEBUG*/ 
 	vMAIN_type_uart();					/*通信機種判定処理 */
 
 	ucg_TR_stbyct = 0;						/*ｽﾀﾝﾊﾞｲ異常判定ｶｳﾝﾀをｸﾘｱ(初期化)  */					
@@ -377,6 +388,11 @@ void main_loop( void )
 			ucg_2ms_flg = false;
 			vTIME_Timea();							/*タイマ制御処理｜≧19.5us */
 			/*INV系処理*/
+#ifdef DEBUG /*DEBUG*/
+            if(test_chg_speed_flg == 1){  /* デバッグ */
+				ucTRNS_sfrq_b = test_speed;
+			}
+#endif /*DEBUG*/
 			ucMAIN_chkint = 0;				/*割込ﾁｪｯｸｶｳﾝﾀ←ｸﾘｱ */
 			vSPD_set();
 			v2LV_Ctrl2lv();							/*２レベル電圧制御処理 */
@@ -437,6 +453,9 @@ void vTRNS_Cnttrns(void){					/*通信ﾀｲﾏｶｳﾝﾄ処理 */
 		ucHOG_sttF &= 0xfe;								/*通信異常１時間経過ﾌﾗｸﾞ←ｸﾘｱ F_TRERHG(ucHOG_sttF.0) */
 		u8g_MOTOR_ctrlflg = MOTOR_CTRL_ONLINE;    		/*RW通信状態フラグをオンラインに設定*/
 	}													/* */
+#ifdef DEBUG /*DEBUG*/
+	u8g_MOTOR_ctrlflg = MOTOR_CTRL_ONLINE;
+#endif /*DEBUG*/
 }				
 
 /**************************************************************************

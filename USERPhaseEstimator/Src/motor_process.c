@@ -831,7 +831,9 @@ uint8_t MOTOR_SelectSpeedCommand(uint8_t ctrlflg, uint8_t TRNSset_spd_flg, uint8
    && (TRNSset_spd_flg != 0)){              /* 一度でも回転数をセットしているなら */
     SPD_cmd = TRNS_sfrq_dec;            /* オンライン時は受信した回転数を使用 */
   }else{                                        /* オフラインなら*/
-    SPD_cmd = speed_cmd_offline;      /* オフライン時は断続運転中のコンプON回転数を使用 */
+#ifndef DEBUG /*DEBUG*/
+  	SPD_cmd = speed_cmd_offline;      /* オフライン時は断続運転中のコンプON回転数を使用 */
+#endif /*DEBUG*/
   }
   return SPD_cmd;
 }

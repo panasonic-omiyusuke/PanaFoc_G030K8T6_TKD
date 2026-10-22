@@ -545,7 +545,7 @@ __weak void STO_VOLT_PLL_Clear(STO_VOLT_PLL_Handle_t *pHandle)
     pHandle->Ibeta_est = (int32_t)0;
     pHandle->hBemf_d_est = (int16_t)0;
     pHandle->hBemf_q_est = (int16_t)0;
-    pHandle->_Super.hElAngle = -10922;
+    pHandle->_Super.hElAngle = (int16_t)32767;
     pHandle->_Super.hElSpeedDpp = (int16_t)0;
     pHandle->_Super.InstantaneousElSpeedDpp = (int16_t)0;
     pHandle->ConsistencyCounter = 0u;
