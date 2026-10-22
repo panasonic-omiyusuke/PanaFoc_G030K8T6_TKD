@@ -1,0 +1,38 @@
+# -----------------------------------------------------------------------------
+# Build / generated artifacts (Keil MDK-ARM)
+# -----------------------------------------------------------------------------
+*.tmp
+*.temp
+*.log
+
+MDK-ARM/*.o
+MDK-ARM/*.d
+MDK-ARM/*.dep
+MDK-ARM/*.bin
+MDK-ARM/*.lnp
+MDK-ARM/*.htm
+MDK-ARM/*.scvd
+MDK-ARM/*.build_log.htm
+MDK-ARM/*.Bak
+MDK-ARM/*.bak
+
+# Keil user/local files (do not affect build reproducibility)
+MDK-ARM/*.uvguix.*
+MDK-ARM/ExtDll.iex
+MDK-ARM/DebugConfig/*.dbgconf
+
+# -----------------------------------------------------------------------------
+# Local editor / environment files
+# -----------------------------------------------------------------------------
+.vscode/
+.extSettings/
+.venv/
+
+# Local test/work dirs
+test.s/
+tests/
+tools/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
