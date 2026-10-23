@@ -607,17 +607,22 @@
         <Ww>
           <count>23</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ucMINtm_stbyct</ItemText>
+          <ItemText>un100MSt_typect,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>24</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ucg_TR_stbyct,0x0A</ItemText>
+          <ItemText>u8g_MOTOR_ctrlflg</ItemText>
         </Ww>
         <Ww>
           <count>25</count>
           <WinNumber>1</WinNumber>
-          <ItemText>u8g_MOTOR_ctrlflg</ItemText>
+          <ItemText>ucTRNS_type</ItemText>
+        </Ww>
+        <Ww>
+          <count>26</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ucHOG_movF,0x10</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -1439,7 +1444,7 @@
 
   <Group>
     <GroupName>USERPhaseEstimator</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1495,7 +1500,7 @@
       <GroupNumber>6</GroupNumber>
       <FileNumber>64</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\USERPhaseEstimator\Src\motor_process.c</PathWithFileName>
@@ -1667,7 +1672,7 @@
 
   <Group>
     <GroupName>RefgeFunction/hogo</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

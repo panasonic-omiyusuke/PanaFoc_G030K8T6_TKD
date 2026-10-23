@@ -46,7 +46,7 @@
 #define F_VOLT_3                            65535
 #define F_VOLT_4                            31415
 #define F_VOLT_5                            19429972      /* alt: 19429972, 19429972, 77719888, 19429972, 38859944, 19429972, 9714986; 1*Wb=4857493 0.05Wb=2428747 */
-#define F_VOLT_6                            25736         /* alt: 25736; LAMDA=1.2 15442  LAMDA=1 12868 LAMDA=2 25736 LAMDA=5 64340  LAMDA=3 38604 LAMDA=1.5 19302 */
+#define F_VOLT_6                            12868         /* alt: 25736; LAMDA=1.2 15442  LAMDA=1 12868 LAMDA=2 25736 LAMDA=5 64340  LAMDA=3 38604 LAMDA=1.5 19302 */
 #define F_VOLT_7                            10000
 #define F_VOLT_8                            32767
 #define F1_LOG                              LOG2((16384))
@@ -97,17 +97,17 @@
 #define ISR_FREQUENCY_HZ                    (PWM_FREQUENCY/REGULATION_EXECUTION_RATE) /*!< @brief FOC execution rate in Hz */
 
 /* Gains values for torque and flux control loops */
-#define PID_TORQUE_KP_DEFAULT               2776              
-#define PID_TORQUE_KI_DEFAULT               1201              
+#define PID_TORQUE_KP_DEFAULT               2276              
+#define PID_TORQUE_KI_DEFAULT               701              
 #define PID_TORQUE_KD_DEFAULT               100
-#define PID_FLUX_KP_DEFAULT                 2776              
-#define PID_FLUX_KI_DEFAULT                 1201              
+#define PID_FLUX_KP_DEFAULT                 2276              
+#define PID_FLUX_KI_DEFAULT                 701              
 #define PID_FLUX_KD_DEFAULT                 100
 
-#define PID_TORQUE_KP_HIGH                  2576              
-#define PID_TORQUE_KI_HIGH                  1501              
-#define PID_FLUX_KP_HIGH                    2576           /* 100.51 */
-#define PID_FLUX_KI_HIGH                    1501           /* 5.527 */
+#define PID_TORQUE_KP_HIGH                  2276              
+#define PID_TORQUE_KI_HIGH                  1201              
+#define PID_FLUX_KP_HIGH                    2276           /* 100.51 */
+#define PID_FLUX_KI_HIGH                    1201           /* 5.527 */
 
 #define PID_TORQUE_KP_MID                   2276              
 #define PID_TORQUE_KI_MID                   251              
@@ -128,18 +128,18 @@
 #define TF_KDDIV_LOG                        LOG2((8192))
 #define TFDIFFERENTIAL_TERM_ENABLING        DISABLE
 
-#define PID_SPEED_KP_DEFAULT                2776/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit; alt: 2216, 2016 */
-#define PID_SPEED_KI_DEFAULT                519/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit; alt: 379, 339 */
+#define PID_SPEED_KP_DEFAULT                2976/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit; alt: 2216, 2016 */
+#define PID_SPEED_KI_DEFAULT                459/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit; alt: 379, 339 */
 #define PID_SPEED_KD_DEFAULT                0/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 
-#define PID_SPEED_KP_RUN_HIGH               5532             /* alt: 2516*2 */ /* Run State High Speed Kp*/
+#define PID_SPEED_KP_RUN_HIGH               3932             /* alt: 2516*2 */ /* Run State High Speed Kp*/
 #define PID_SPEED_KI_RUN_HIGH               788              /* alt: 1118 */ /* Run State High Speed Ki*/
 
-#define PID_SPEED_KP_RUN_MID                2516              /* Run State MID Speed Kp*/
+#define PID_SPEED_KP_RUN_MID                2216              /* Run State MID Speed Kp*/
 #define PID_SPEED_KI_RUN_MID                788              /* Run State MID Speed Ki*/
 
 #define PID_SPEED_KP_RUN_LOW                1516              /* alt: 1516, 758, 1516 */ /* Run State Low Speed Kp*/
-#define PID_SPEED_KI_RUN_LOW                539               /* alt: 1118, 559, 1118 */ /* Run State Low Speed Ki*/
+#define PID_SPEED_KI_RUN_LOW                509               /* alt: 1118, 559, 1118 */ /* Run State Low Speed Ki*/
 
 #define PID_SPEED_KP_RUN_ECO_CTRL           758               /* Run State Eco Ctrl Kp*/
 #define PID_SPEED_KI_RUN_ECO_CTRL           269               /* Run State Eco Ctrl Ki*/
@@ -217,7 +217,7 @@
 #define ENABLE_SL_ALGO_FROM_PHASE           5
 
 /* Sensor-less rev-up sequence */
-#define STARTING_ANGLE_DEG                  180  /*!< degrees [0...359] */
+#define STARTING_ANGLE_DEG                  0  /*!< degrees [0...359] */
 
 /* Observer start-up output conditions  */
 #define OBS_MINIMUM_SPEED_RPM               1200

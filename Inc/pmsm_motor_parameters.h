@@ -39,16 +39,16 @@
 */
 
 #define MOTOR_MAX_SPEED_RPM     4800 /*!< Maximum rated speed  */
-#define NOMINAL_CURRENT_A       2.3
+#define NOMINAL_CURRENT_A       2.1
 #define ID_DEMAG_A              -1.5 /*!< Demagnetization current */
 
-/*TGF86E20LBE*/
-#define RS                      6.23             /*8.31*/ /* Stator resistance , ohm*/
-#define LS                      0.0588        /*0.112101*//* Stator inductance, H
+/*TKD100E20PBF*/
+#define RS                      8.31             /*8.31*/ /* Stator resistance , ohm*/
+#define LS                      0.1061        /*0.112101*//* Stator inductance, H
                                                  For I-PMSM it is equal to Lq */
-#define LSD                     0.0372          /*0.0664*/
-#define FLUXS                   0.0886           /*0.142*//*0.175*/
-#define MOTOR_VOLTAGE_CONSTANT  34.1            /*56.2*/ /*!< Volts RMS ph-ph /kRPM */
+#define LSD                     0.0624          /*0.0664*/
+#define FLUXS                   0.1463231           /*0.142*//*0.175*/
+#define MOTOR_VOLTAGE_CONSTANT  56.30            /*56.2*/ /*!< Volts RMS ph-ph /kRPM */
 
 
 /***************** MOTOR SENSORS PARAMETERS  ******************************/
