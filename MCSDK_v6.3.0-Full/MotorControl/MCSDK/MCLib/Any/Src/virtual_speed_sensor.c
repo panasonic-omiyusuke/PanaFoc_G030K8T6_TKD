@@ -76,7 +76,7 @@ __weak void VSS_Clear(VirtualSpeedSensor_Handle_t *pHandle)
   {
 #endif
     pHandle->_Super.bSpeedErrorNumber = 0U;
-    pHandle->_Super.hElAngle = -10922;
+    pHandle->_Super.hElAngle = 0;
     pHandle->_Super.hMecAngle = 0;
     pHandle->_Super.hAvrMecSpeedUnit = 0;
     pHandle->_Super.hElSpeedDpp = 0;
