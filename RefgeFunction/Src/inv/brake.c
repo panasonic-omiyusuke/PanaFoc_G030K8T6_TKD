@@ -116,7 +116,7 @@ unsigned16	unPMDc_spdcrnt;				/* 実回転周期60ﾟe(但し MCAP 値⇒単位:
 #define WAIT_LOWER_SPEED		(WAIT_MATCH_MAX_INDEX + 1)		/* 未使用 BRAKE_MOTOR設定するためだけに利用 */
 #define BRAKE_MOTOR			(WAIT_LOWER_SPEED + 1)				/* ブレーキ中の状態 *//* @229swHOT[22/09/02] */
 #define CARRIER_PERIOD_TR 100								/* キャリアの時間[us] 10kHz前提 クロスタイミングの補正用 */
-#define SHORT_CIRCUIT_DUTY (D_PWMPERIODfrc + 1)		/* ブレーキ中のDuty 100%設定 コンプごとに見直し必要*/
+#define SHORT_CIRCUIT_DUTY ((D_PWMPERIODfrc >> 4) * 15)		/* ブレーキ中のDuty 93.75%設定 コンプごとに見直し必要*/
 //#define SHORT_CIRCUIT_DUTY (D_PWMPERIODfrc + 1)
 //#define SHORT_CIRCUIT_DUTY (D_PWMPERIODfrc - (UI16)((D_PWMPERIODfrc+5)/10))
 //#define BRAKING_SPEED_RPS (19) //3704=15rps　2924=20rps)
