@@ -1366,15 +1366,15 @@ __weak void *R1_DMAx_TC_IRQHandler(PWMC_R1_Handle_t *pHandle)
     {
         if(u8g_brake_state == BRAKE_STOPPING)
         {
-            pHandle->DmaBuffCCR[0] = (D_PWMPERIODfrc + 1); /*相のDuty設定 100%設定 コンプごとに見直し必要*/
-            pHandle->DmaBuffCCR[1] = (D_PWMPERIODfrc + 1); /*相のDuty設定 100%設定 コンプごとに見直し必要*/
-            pHandle->DmaBuffCCR[2] = (D_PWMPERIODfrc + 1); /*相のDuty設定 100%設定 コンプごとに見直し必要*/
+            pHandle->DmaBuffCCR[0] = ((D_PWMPERIODfrc >> 4) * 15); /*相のDuty設定 93.75%設定 コンプごとに見直し必要*/
+            pHandle->DmaBuffCCR[1] = ((D_PWMPERIODfrc >> 4) * 15); /*相のDuty設定 93.75%設定 コンプごとに見直し必要*/
+            pHandle->DmaBuffCCR[2] = ((D_PWMPERIODfrc >> 4) * 15); /*相のDuty設定 93.75%設定 コンプごとに見直し必要*/
             pHandle->DmaBuffCCR[3] = (D_PWMPERIODfrc >> 1);/*AD変換タイミングの設定 50% */
 
             /* Second half PWM period CCR value transfered by DMA */
-            pHandle->DmaBuffCCR[4] = (D_PWMPERIODfrc + 1); /*相のDuty設定 100%設定 コンプごとに見直し必要*/
-            pHandle->DmaBuffCCR[5] = (D_PWMPERIODfrc + 1); /*相のDuty設定 100%設定 コンプごとに見直し必要*/
-            pHandle->DmaBuffCCR[6] = (D_PWMPERIODfrc + 1); /*相のDuty設定 100%設定 コンプごとに見直し必要*/
+            pHandle->DmaBuffCCR[4] = ((D_PWMPERIODfrc >> 4) * 15); /*相のDuty設定 93.75%設定 コンプごとに見直し必要*/
+            pHandle->DmaBuffCCR[5] = ((D_PWMPERIODfrc >> 4) * 15); /*相のDuty設定 93.75%設定 コンプごとに見直し必要*/
+            pHandle->DmaBuffCCR[6] = ((D_PWMPERIODfrc >> 4) * 15); /*相のDuty設定 93.75%設定 コンプごとに見直し必要*/
             pHandle->DmaBuffCCR[7] = (D_PWMPERIODfrc >> 1);/*AD変換タイミングの設定 50% */
         }else{
             pHandle->DmaBuffCCR[0] = pHandle->DmaBuffCCR_latch[0];

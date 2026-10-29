@@ -1057,9 +1057,9 @@ void INT_ADDTC(void){
  **************************************************************************/
 void INT_ADDTC_BRAKE(void){
     SI16 large, small;
-    PWM_U_TMREG = (D_PWMPERIODfrc + 1);		 /* ブレーキ中のDuty */
-	PWM_V_TMREG = (D_PWMPERIODfrc + 1);		 /* ブレーキ中のDuty */
-	PWM_W_TMREG = (D_PWMPERIODfrc + 1);		 /* ブレーキ中のDuty */
+    PWM_U_TMREG = ((D_PWMPERIODfrc >> 4) * 15);		 /* ブレーキ中のDuty */
+	PWM_V_TMREG = ((D_PWMPERIODfrc >> 4) * 15);		 /* ブレーキ中のDuty */
+	PWM_W_TMREG = ((D_PWMPERIODfrc >> 4) * 15);		 /* ブレーキ中のDuty */
     htim1.Instance->EGR |= TIM_EGR_COMG; //update pwm out
 
     large = average3(&ad_data_arr[ADSTNUM_VT]);
